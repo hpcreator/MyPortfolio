@@ -7,9 +7,6 @@ enum class Section(val id: String, val title: String, val subtitle: String, val 
     About(
         id = "about", title = "About me", subtitle = "Why Hire Me?", path = "#about"
     ),
-    Service(
-        id = "service", title = "Service", subtitle = "I'm Good at", path = "#service"
-    ),
     Portfolio(
         id = "portfolio", title = "Portfolio", subtitle = "My Work", path = "#portfolio"
     ),
@@ -18,17 +15,5 @@ enum class Section(val id: String, val title: String, val subtitle: String, val 
     ),
     Contact(
         id = "contact", title = "Contact me", subtitle = "Get in Touch", path = "#contact"
-    ),
-    Testimonial(
-        id = "testimonial",
-        title = "Testimonial",
-        subtitle = "Happy Customers",
-        path = "#testimonial"
-    ),
-    Achievements(
-        id = "achievements",
-        title = "Achievements",
-        subtitle = "Personal Achievements",
-        path = "#achievements"
     )
 }

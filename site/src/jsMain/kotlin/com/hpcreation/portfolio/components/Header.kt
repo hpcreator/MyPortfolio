@@ -77,7 +77,7 @@ fun RightSide() {
             .backgroundColor(Theme.LighterGray.rgb).padding(topBottom = 2.px, leftRight = 30.px),
         horizontalArrangement = Arrangement.End
     ) {
-        Section.entries.toTypedArray().take(6).forEach { section ->
+        Section.entries.forEach { section ->
             Link(
                 modifier = NavigationItemStyle.toModifier().padding(15.px).fontFamily(FONT_FAMILY)
                     .fontSize(18.px).fontWeight(

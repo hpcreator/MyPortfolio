@@ -14,6 +14,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.boxShadow
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.minHeight
 import com.varabyte.kobweb.compose.ui.modifiers.minWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
@@ -30,12 +31,8 @@ import org.jetbrains.compose.web.css.px
 fun SocialBar(row: Boolean = false) {
     if (row) {
         Row(
-            modifier = Modifier.margin(right = 30.px).padding(topBottom = 25.px).minWidth(40.px)
-                .borderRadius(r = 15.px).backgroundColor(Theme.White.rgb).boxShadow(
-                    BoxShadow.of(
-                        color = Theme.Secondary.rgb, spreadRadius = 2.px, blurRadius = 10.px
-                    )
-                ),
+            modifier = Modifier.margin(top = 30.px).padding(leftRight = 25.px).minHeight(40.px)
+                .borderRadius(r = 15.px).backgroundColor(Theme.Secondary.rgb),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {

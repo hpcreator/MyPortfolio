@@ -4,7 +4,6 @@ import com.hpcreation.portfolio.models.Theme
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.color
-import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.compose.ui.modifiers.transform
 import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.modifiers.width
@@ -35,10 +34,10 @@ val NavigationItemStyle = CssStyle {
 val LogoStyle = CssStyle {
     base {
         Modifier.transform { rotate(0.deg) }
-            .transition(Transition.of(property = "transform", duration = 200.ms)).size(64.px)
+            .transition(Transition.of(property = "transform", duration = 200.ms))
     }
     hover {
-        Modifier.transform { rotate(0.deg) }.size(64.px)
+        Modifier.transform { rotate(0.deg) }
     }
 }
 
