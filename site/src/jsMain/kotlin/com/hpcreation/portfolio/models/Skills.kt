@@ -35,10 +35,10 @@ enum class TechSkill(val image: String, val title: String) {
     FLUTTER(
         image = Res.Image.FLUTTER, title = "Flutter"
     ),
-    DART(image = Res.Image.DART, title = "Dart"), KTOR(
-        image = Res.Image.KTOR, title = "Ktor"
+    DART(image = Res.Image.DART, title = "Dart"), FIREBASE(
+        image = Res.Image.FIREBASE, title = "Firebase"
     ),
-    FIREBASE(image = Res.Image.FIREBASE, title = "Firebase"), MYSQL(
+    MYSQL(
         image = Res.Image.MYSQL, title = "MySql"
     ),
     MATERIAL_UI(
@@ -47,7 +47,7 @@ enum class TechSkill(val image: String, val title: String) {
     AUTH0(image = Res.Image.AUTH0, "Auth0"), FIGMA(
         image = Res.Image.FIGMA, title = "Figma"
     ),
-    POSTMAN(
+    XD(image = Res.Image.XD, title = "Adobe XD"), POSTMAN(
         image = Res.Image.POSTMAN, title = "Postman"
     ),
     SWAGGER(
