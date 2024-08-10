@@ -36,7 +36,7 @@ import org.jetbrains.compose.web.dom.TextArea
 
 @Composable
 fun ContactForm(breakpoint: Breakpoint) {
-    Form(action = "https://formspree.io/f/xeojenva", attrs = Modifier.attrsModifier {
+    Form(action = "https://formspree.io/f/mdknzgyq", attrs = Modifier.attrsModifier {
         attr("method", "POST")
     }.toAttrs()) {
         Label(

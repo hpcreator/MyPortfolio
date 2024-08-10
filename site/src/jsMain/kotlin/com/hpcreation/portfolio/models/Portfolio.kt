@@ -9,7 +9,7 @@ enum class Portfolio(
     GREEN_TILL(
         image = Res.Project.GREEN_TILL,
         title = "Green Till",
-        description = "This helps retailer and wholesalers to generate digital receipts. The app also lets you store all your loyalty cards, coupons and everything related to your shopping in one place.",
+        description = "This helps retailer and wholesalers to generate digital receipts. The app also lets you store all your loyalty cards, coupons in one place.",
         url = Constants.GREEN_TILL
     ),
     HUSK(
@@ -27,7 +27,7 @@ enum class Portfolio(
     DIGIT_RX(
         image = Res.Project.DIGIT_RX,
         title = "Digit RX",
-        description = "It is a digital E Prescription Tool which helps to generate digital prescriptions.It helps doctors to prescribe medicines in digital format.It allows online consultation facility for remote areas.",
+        description = "It is a digital E Prescription Tool which helps to generate digital prescriptions.It helps doctors to prescribe medicines in digital format.",
         url = Constants.DIGIT_RX
     ),
 }

@@ -23,6 +23,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
+import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaBars
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
@@ -32,6 +34,8 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun Header(onMenuClicked: () -> Unit) {
@@ -78,14 +82,29 @@ fun RightSide() {
         horizontalArrangement = Arrangement.End
     ) {
         Section.entries.forEach { section ->
-            Link(
+            /*Link(
                 modifier = NavigationItemStyle.toModifier().padding(15.px).fontFamily(FONT_FAMILY)
                     .fontSize(18.px).fontWeight(
                         FontWeight.Normal
                     ).textDecorationLine(TextDecorationLine.None),
                 path = section.path,
                 text = section.title
-            )
+            )*/
+            Link(
+                path = section.path,
+                openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB,
+                modifier = Modifier.padding(leftRight = 15.px, top = 15.px)
+                    .textDecorationLine(TextDecorationLine.None)
+            ) {
+                P(
+                    attrs = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY).fontSize(18.px)
+                        .fontWeight(
+                            FontWeight.Normal
+                        ).textDecorationLine(TextDecorationLine.None).toAttrs()
+                ) {
+                    Text(value = section.title)
+                }
+            }
         }
     }
 }

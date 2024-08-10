@@ -32,7 +32,11 @@ fun SocialBar(row: Boolean = false) {
     if (row) {
         Row(
             modifier = Modifier.margin(top = 30.px).padding(leftRight = 25.px).minHeight(40.px)
-                .borderRadius(r = 15.px).backgroundColor(Theme.Secondary.rgb),
+                .borderRadius(r = 15.px).backgroundColor(Theme.White.rgb).boxShadow(
+                    BoxShadow.of(
+                        color = Theme.Secondary.rgb, spreadRadius = 2.px, blurRadius = 10.px
+                    )
+                ),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {

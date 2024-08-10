@@ -44,6 +44,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.modifiers.translateX
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.modifiers.zIndex
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaXmark
@@ -59,6 +60,8 @@ import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.vh
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun OverflowMenu(onMenuClosed: () -> Unit) {
@@ -111,7 +114,7 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                 )
             }
             Section.entries.forEach { section ->
-                Link(
+                /*Link(
                     modifier = NavigationItemStyle.toModifier().margin(bottom = 10.px)
                         .fontFamily(FONT_FAMILY).fontSize(16.px).fontWeight(FontWeight.Normal)
                         .textDecorationLine(TextDecorationLine.None).onClick {
@@ -125,7 +128,27 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                     path = section.path,
                     text = section.title,
                     openInternalLinksStrategy = OpenLinkStrategy.IN_PLACE
-                )
+                )*/
+                Link(path = section.path,
+                    openExternalLinksStrategy = OpenLinkStrategy.IN_PLACE,
+                    modifier = Modifier.padding(leftRight = 15.px, top = 15.px)
+                        .textDecorationLine(TextDecorationLine.None).onClick {
+                            scope.launch {
+                                translateX = (-100).percent
+                                opacity = 0.percent
+                                delay(500)
+                                onMenuClosed()
+                            }
+                        }) {
+                    P(
+                        attrs = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY)
+                            .fontSize(18.px).fontWeight(
+                                FontWeight.Normal
+                            ).textDecorationLine(TextDecorationLine.None).toAttrs()
+                    ) {
+                        Text(value = section.title)
+                    }
+                }
             }
         }
     }

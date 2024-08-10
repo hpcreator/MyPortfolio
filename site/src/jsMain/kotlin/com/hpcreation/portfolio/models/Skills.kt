@@ -30,7 +30,7 @@ enum class TechSkill(val image: String, val title: String) {
         image = Res.Image.JAVA, title = "Java"
     ),
     KOTLIN(image = Res.Image.KOTLIN, title = "Kotlin"), JETPACK_COMPOSE(
-        image = Res.Image.COMPOSE, title = "Jetpack Compose"
+        image = Res.Image.COMPOSE, title = "Compose"
     ),
     FLUTTER(
         image = Res.Image.FLUTTER, title = "Flutter"
@@ -63,7 +63,7 @@ enum class TechSkill(val image: String, val title: String) {
         image = Res.Image.TRELLO, title = "Trello"
     ),
     GOOGLE_PLAY_SERVICES(
-        image = Res.Image.GOOGLE_SERVICES, title = "Google Play Services"
+        image = Res.Image.GOOGLE_SERVICES, title = "Play Services"
     ),
     ANDROID_STUDIO(
         image = Res.Image.ANDROID_STUDIO, title = "Android Studio"

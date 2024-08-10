@@ -25,6 +25,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
+import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
@@ -32,6 +34,8 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun FooterSection() {
@@ -66,7 +70,7 @@ fun FooterContent() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                FooterMenu(row = false)
+                FooterMenu()
             }
         }
         SocialBar(row = true)
@@ -74,16 +78,31 @@ fun FooterContent() {
 }
 
 @Composable
-fun FooterMenu(row: Boolean = true) {
+fun FooterMenu() {
     Section.entries.forEach { section ->
-        Link(
+        /*Link(
             modifier = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY).padding(
                 right = if (row) 20.px else 0.px, bottom = if (row) 0.px else 20.px
             ).fontSize(14.px).fontWeight(FontWeight.Normal)
                 .textDecorationLine(TextDecorationLine.None),
             path = section.path,
             text = section.title
-        )
+        )*/
+        Link(
+            path = section.path,
+            openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB,
+            modifier = Modifier.padding(leftRight = 15.px, top = 15.px)
+                .textDecorationLine(TextDecorationLine.None)
+        ) {
+            P(
+                attrs = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY).fontSize(18.px)
+                    .fontWeight(
+                        FontWeight.Normal
+                    ).textDecorationLine(TextDecorationLine.None).toAttrs()
+            ) {
+                Text(value = section.title)
+            }
+        }
     }
 }
 
