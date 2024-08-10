@@ -70,7 +70,7 @@ fun FooterContent() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                FooterMenu()
+                FooterMenu(row = false)
             }
         }
         SocialBar(row = true)
@@ -78,21 +78,14 @@ fun FooterContent() {
 }
 
 @Composable
-fun FooterMenu() {
+fun FooterMenu(row: Boolean = true) {
     Section.entries.forEach { section ->
-        /*Link(
-            modifier = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY).padding(
-                right = if (row) 20.px else 0.px, bottom = if (row) 0.px else 20.px
-            ).fontSize(14.px).fontWeight(FontWeight.Normal)
-                .textDecorationLine(TextDecorationLine.None),
-            path = section.path,
-            text = section.title
-        )*/
         Link(
             path = section.path,
             openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB,
-            modifier = Modifier.padding(leftRight = 15.px, top = 15.px)
-                .textDecorationLine(TextDecorationLine.None)
+            modifier = Modifier.padding(
+                right = if (row) 15.px else 0.px
+            ).textDecorationLine(TextDecorationLine.None)
         ) {
             P(
                 attrs = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY).fontSize(18.px)

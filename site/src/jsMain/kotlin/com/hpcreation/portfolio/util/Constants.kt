@@ -37,7 +37,8 @@ object Res {
     }
 
     object Image {
-        const val BACKGROUND = "background.svg"
+        const val BG1 = "bg1.svg"
+        const val BG2 = "bg2.svg"
         const val LOGO = "Harsh_Logo.svg"
         const val PROFILE = "imgProfile.png"
 

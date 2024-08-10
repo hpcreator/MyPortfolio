@@ -82,14 +82,6 @@ fun RightSide() {
         horizontalArrangement = Arrangement.End
     ) {
         Section.entries.forEach { section ->
-            /*Link(
-                modifier = NavigationItemStyle.toModifier().padding(15.px).fontFamily(FONT_FAMILY)
-                    .fontSize(18.px).fontWeight(
-                        FontWeight.Normal
-                    ).textDecorationLine(TextDecorationLine.None),
-                path = section.path,
-                text = section.title
-            )*/
             Link(
                 path = section.path,
                 openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB,

@@ -114,21 +114,6 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                 )
             }
             Section.entries.forEach { section ->
-                /*Link(
-                    modifier = NavigationItemStyle.toModifier().margin(bottom = 10.px)
-                        .fontFamily(FONT_FAMILY).fontSize(16.px).fontWeight(FontWeight.Normal)
-                        .textDecorationLine(TextDecorationLine.None).onClick {
-                            scope.launch {
-                                translateX = (-100).percent
-                                opacity = 0.percent
-                                delay(500)
-                                onMenuClosed()
-                            }
-                        },
-                    path = section.path,
-                    text = section.title,
-                    openInternalLinksStrategy = OpenLinkStrategy.IN_PLACE
-                )*/
                 Link(path = section.path,
                     openExternalLinksStrategy = OpenLinkStrategy.IN_PLACE,
                     modifier = Modifier.padding(leftRight = 15.px, top = 15.px)

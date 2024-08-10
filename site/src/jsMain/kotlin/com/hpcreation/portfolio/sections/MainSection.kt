@@ -62,28 +62,29 @@ import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun MainSection(onMenuClicked: () -> Unit) {
+    val breakpoint = rememberBreakpoint()
     Box(
         modifier = Modifier.id(Section.Home.id).maxWidth(SECTION_WIDTH.px),
         contentAlignment = Alignment.TopCenter
     ) {
-        MainBackground()
-        MainContent(onMenuClicked = onMenuClicked)
+        MainBackground(breakpoint = breakpoint)
+        MainContent(onMenuClicked = onMenuClicked, breakpoint)
     }
 }
 
 @Composable
-fun MainBackground() {
+fun MainBackground(breakpoint: Breakpoint) {
     Image(
         modifier = Modifier.fillMaxSize().objectFit(ObjectFit.Cover),
-        src = Res.Image.BACKGROUND,
+        src = if (breakpoint < Breakpoint.MD) Res.Image.BG2 else Res.Image.BG1,
         description = "Background Image"
     )
 }
 
 
 @Composable
-fun MainContent(onMenuClicked: () -> Unit) {
-    val breakpoint = rememberBreakpoint()
+fun MainContent(onMenuClicked: () -> Unit, breakpoint: Breakpoint) {
+    //val breakpoint = rememberBreakpoint()
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
