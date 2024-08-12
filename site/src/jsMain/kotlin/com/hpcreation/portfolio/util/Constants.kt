@@ -10,6 +10,8 @@ object Constants {
     const val MEDIUM_URL = "https://medium.com/@harshpatel_"
     const val INSTAGRAM_URL = "https://www.instagram.com/_harsh1290/"
 
+    const val RESUME_URL = "https://flowcv.com/resume/3vp5gtmrdm"
+
     //Project Links
     const val HUSK = "https://play.google.com/store/apps/dev?id=6376651493908499849&hl=en"
     const val GREEN_TILL = "https://play.google.com/store/apps/details?id=green.till.receipt"
@@ -27,6 +29,7 @@ object Constants {
 
     const val ABOUT_ME =
         "With 5 years of experience, as an Android developer I have gained an understanding of the mobile development process. I am well versed in Java and Kotlin and proficient in utilizing Android Studio allowing me to create and maintain notch applications that cater to my clients requirements.\nThroughout my journey I have taken on projects ranging from simple utility apps to intricate social networking platforms. My ability to work both independently and collaboratively has consistently ensured project delivery while adhering to budget constraints. Apart from my expertise I possess a problem solving mindset and a meticulous attention to detail. I always seek out challenges and opportunities for growth, as a developer."
+    const val DOWNLOAD_RESUME = "Get Resume"
 
 
 }

@@ -1,8 +1,12 @@
 package com.hpcreation.portfolio.styles
 
+import com.hpcreation.portfolio.models.Theme
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.css.TransitionProperty
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
+import com.varabyte.kobweb.compose.ui.modifiers.border
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.opacity
@@ -11,6 +15,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.selectors.hover
+import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.deg
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.percent
@@ -46,5 +51,15 @@ val SkillImageStyle = CssStyle {
     }
     hover {
         Modifier.width(100.px).height(90.px)
+    }
+}
+val ResumeButtonStyle = CssStyle {
+    base {
+        Modifier.width(140.px).transition(Transition.of(property = "width", duration = 200.ms))
+            .border(width = 2.px, color = Theme.Primary.rgb, style = LineStyle.Solid)
+            .backgroundColor(Colors.Transparent)
+    }
+    hover {
+        Modifier.width(150.px)
     }
 }

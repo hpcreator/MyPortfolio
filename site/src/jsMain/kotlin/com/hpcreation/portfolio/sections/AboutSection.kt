@@ -1,27 +1,23 @@
 package com.hpcreation.portfolio.sections
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import com.hpcreation.portfolio.components.SectionTitle
 import com.hpcreation.portfolio.components.TechSkillGrid
 import com.hpcreation.portfolio.models.Section
-import com.hpcreation.portfolio.models.Skills
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.AboutImageStyle
 import com.hpcreation.portfolio.styles.AboutTextStyle
+import com.hpcreation.portfolio.styles.ResumeButtonStyle
 import com.hpcreation.portfolio.util.Constants.ABOUT_ME
+import com.hpcreation.portfolio.util.Constants.DOWNLOAD_RESUME
 import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
+import com.hpcreation.portfolio.util.Constants.RESUME_URL
 import com.hpcreation.portfolio.util.Constants.SECTION_WIDTH
-import com.hpcreation.portfolio.util.ObserveViewPortEntered
 import com.hpcreation.portfolio.util.Res
-import com.hpcreation.portfolio.util.animateNumbers
+import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -30,6 +26,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
@@ -40,17 +37,19 @@ import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
+import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
+import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
@@ -113,21 +112,6 @@ fun AboutImage() {
 
 @Composable
 fun AboutMe() {
-    val scope = rememberCoroutineScope()
-    var viewportEntered by remember { mutableStateOf(false) }
-    val animatedPercentage = remember { mutableStateListOf(0, 0, 0, 0, 0) }
-    ObserveViewPortEntered(sectionId = Section.About.id,
-        distanceFromTop = 300.0,
-        onViewportEntered = {
-            viewportEntered = true
-            Skills.entries.forEach { skill ->
-                scope.launch {
-                    animateNumbers(number = skill.percentage.value.toInt(), onUpdate = {
-                        animatedPercentage[skill.ordinal] = it
-                    })
-                }
-            }
-        })
     Column(
         modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.Center
     ) {
@@ -144,6 +128,19 @@ fun AboutMe() {
             ) {
                 Text(value = paragraph)
             }
+        }
+
+        Button(
+            attrs = ResumeButtonStyle.toModifier().height(40.px)
+                .padding(leftRight = 10.px, topBottom = 5.px).borderRadius(r = 5.px)
+                .cursor(Cursor.Pointer).toAttrs()
+        ) {
+            Link(
+                modifier = Modifier.color(Theme.Primary.rgb)
+                    .textDecorationLine(TextDecorationLine.None),
+                text = DOWNLOAD_RESUME,
+                path = RESUME_URL
+            )
         }
     }
 }
