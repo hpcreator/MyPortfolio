@@ -11,6 +11,7 @@ import com.hpcreation.portfolio.styles.ResumeButtonStyle
 import com.hpcreation.portfolio.util.Constants.ABOUT_ME
 import com.hpcreation.portfolio.util.Constants.DOWNLOAD_RESUME
 import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
+import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Constants.RESUME_URL
 import com.hpcreation.portfolio.util.Constants.SECTION_WIDTH
 import com.hpcreation.portfolio.util.Res
@@ -132,7 +133,7 @@ fun AboutMe() {
 
         Button(
             attrs = ResumeButtonStyle.toModifier().height(40.px)
-                .padding(leftRight = 10.px, topBottom = 5.px).borderRadius(r = 5.px)
+                .padding(leftRight = 10.px, topBottom = 5.px).fontFamily(FONT_MONOSPACE).borderRadius(r = 5.px)
                 .cursor(Cursor.Pointer).toAttrs()
         ) {
             Link(

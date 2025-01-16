@@ -19,7 +19,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.minWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.icons.fa.FaGithub
-import com.varabyte.kobweb.silk.components.icons.fa.FaInstagram
 import com.varabyte.kobweb.silk.components.icons.fa.FaLinkedin
 import com.varabyte.kobweb.silk.components.icons.fa.FaMedium
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
@@ -82,15 +81,6 @@ private fun SocialLinks(row: Boolean = false) {
         path = Constants.MEDIUM_URL, openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ) {
         FaMedium(
-            modifier = SocialLinkStyle.toModifier().margin(
-                bottom = if (row) 0.px else 40.px, right = if (row) 40.px else 0.px
-            ), size = IconSize.LG
-        )
-    }
-    Link(
-        path = Constants.INSTAGRAM_URL, openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
-    ) {
-        FaInstagram(
             modifier = SocialLinkStyle.toModifier(), size = IconSize.LG
         )
     }

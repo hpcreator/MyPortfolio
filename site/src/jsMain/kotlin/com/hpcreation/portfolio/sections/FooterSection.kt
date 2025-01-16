@@ -5,7 +5,7 @@ import com.hpcreation.portfolio.components.SocialBar
 import com.hpcreation.portfolio.models.Section
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.NavigationItemStyle
-import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
+import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Constants.SECTION_WIDTH
 import com.hpcreation.portfolio.util.Res
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -88,7 +88,7 @@ fun FooterMenu(row: Boolean = true) {
             ).textDecorationLine(TextDecorationLine.None)
         ) {
             P(
-                attrs = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY).fontSize(18.px)
+                attrs = NavigationItemStyle.toModifier().fontFamily(FONT_MONOSPACE).fontSize(18.px)
                     .fontWeight(
                         FontWeight.Normal
                     ).textDecorationLine(TextDecorationLine.None).toAttrs()

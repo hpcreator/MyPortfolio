@@ -56,7 +56,7 @@ fun ExperienceContent() {
         SectionTitle(
             modifier = Modifier.fillMaxWidth(if (breakpoint >= Breakpoint.MD) 60.percent else 90.percent)
                 .margin(bottom = 25.px),
-            section = Section.Portfolio,
+            section = Section.Experience,
         )
 
         Experience.entries.forEachIndexed { index, experience ->

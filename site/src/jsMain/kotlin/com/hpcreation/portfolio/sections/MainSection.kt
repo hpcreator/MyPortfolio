@@ -8,6 +8,8 @@ import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.MainButtonStyle
 import com.hpcreation.portfolio.styles.MainImageStyle
 import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
+import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
+import com.hpcreation.portfolio.util.Constants.FONT_TITLE
 import com.hpcreation.portfolio.util.Constants.HELLO_TEXT
 import com.hpcreation.portfolio.util.Constants.HIRE_ME
 import com.hpcreation.portfolio.util.Constants.MY_BIO
@@ -84,7 +86,6 @@ fun MainBackground(breakpoint: Breakpoint) {
 
 @Composable
 fun MainContent(onMenuClicked: () -> Unit, breakpoint: Breakpoint) {
-    //val breakpoint = rememberBreakpoint()
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
@@ -118,14 +119,14 @@ fun MainText(breakpoint: Breakpoint) {
         if (breakpoint > Breakpoint.MD) SocialBar()
         Column(Modifier.padding(10.px)) {
             P(
-                attrs = Modifier.margin(topBottom = 0.px).fontFamily(FONT_FAMILY)
+                attrs = Modifier.margin(topBottom = 0.px).fontFamily(FONT_MONOSPACE)
                     .fontSize(if (breakpoint >= Breakpoint.LG) 45.px else 20.px)
-                    .fontWeight(FontWeight.Normal).color(Theme.Primary.rgb).toAttrs()
+                    .fontWeight(FontWeight.Bold).color(Theme.Primary.rgb).toAttrs()
             ) {
                 Text(value = HELLO_TEXT)
             }
             P(
-                attrs = Modifier.margin(top = 20.px, bottom = 0.px).fontFamily(FONT_FAMILY)
+                attrs = Modifier.margin(top = 20.px, bottom = 0.px).fontFamily(FONT_MONOSPACE)
                     .fontSize(if (breakpoint >= Breakpoint.LG) 64.px else 40.px)
                     .fontWeight(FontWeight.Bolder).color(Theme.Secondary.rgb).toAttrs()
             ) {
@@ -150,7 +151,7 @@ fun MainText(breakpoint: Breakpoint) {
             Button(
                 attrs = MainButtonStyle.toModifier().height(40.px).border(width = 0.px)
                     .borderRadius(r = 5.px).padding(leftRight = 10.px, topBottom = 5.px)
-                    .backgroundColor(Theme.Primary.rgb).color(Colors.White).cursor(Cursor.Pointer)
+                    .backgroundColor(Theme.Primary.rgb).fontFamily(FONT_MONOSPACE).color(Colors.White).cursor(Cursor.Pointer)
                     .toAttrs()
             ) {
                 Link(

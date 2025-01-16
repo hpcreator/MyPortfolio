@@ -8,7 +8,6 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.border
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
-import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.rotate
 import com.varabyte.kobweb.compose.ui.modifiers.transition
@@ -44,15 +43,6 @@ val AboutTextStyle = CssStyle {
     }
 }
 
-val SkillImageStyle = CssStyle {
-    base {
-        Modifier.width(80.px).height(80.px)
-            .transition(Transition.of(property = "width", duration = 200.ms))
-    }
-    hover {
-        Modifier.width(100.px).height(90.px)
-    }
-}
 val ResumeButtonStyle = CssStyle {
     base {
         Modifier.width(140.px).transition(Transition.of(property = "width", duration = 200.ms))

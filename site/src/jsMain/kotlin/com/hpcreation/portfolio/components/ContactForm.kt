@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.InputStyle
 import com.hpcreation.portfolio.styles.MainButtonStyle
+import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
+import com.hpcreation.portfolio.util.Constants.SUBMIT
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -18,6 +20,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.margin
@@ -97,10 +100,11 @@ fun ContactForm(breakpoint: Breakpoint) {
         ) {
             Button(
                 attrs = MainButtonStyle.toModifier().height(40.px).border(width = 0.px)
-                    .borderRadius(r = 5.px).backgroundColor(Theme.Primary.rgb).color(Colors.White)
+                    .borderRadius(r = 5.px).backgroundColor(Theme.Primary.rgb)
+                    .fontFamily(FONT_MONOSPACE).color(Colors.White)
                     .cursor(Cursor.Pointer).toAttrs()
             ) {
-                Text("Submit")
+                Text(SUBMIT)
             }
         }
     }

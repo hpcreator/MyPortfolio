@@ -3,12 +3,13 @@ package com.hpcreation.portfolio.util
 object Constants {
     const val SECTION_WIDTH = 1920
     const val FONT_FAMILY = "Roboto"
+    const val FONT_MONOSPACE = "Monospace"
+    const val FONT_TITLE = "Ballet"
 
     //Social Links
     const val LINKEDIN_URL = "https://www.linkedin.com/in/harsh-patel6472/"
     const val GITHUB_URL = "https://github.com/hpcreator"
     const val MEDIUM_URL = "https://medium.com/@harshpatel_"
-    const val INSTAGRAM_URL = "https://www.instagram.com/_harsh1290/"
 
     const val RESUME_URL = "https://flowcv.com/resume/3vp5gtmrdm"
 
@@ -24,12 +25,15 @@ object Constants {
     const val MY_NAME = "Harsh Patel"
     const val MY_DESIGNATION = "Android Developer"
     const val MY_BIO =
-        "I am an Android Mobile application developer building Java & Kotlin apps, using modern architectures and best practices in the industry"
+        "Building future-ready Android apps using cutting-edge tech and industry best practices."
     const val HIRE_ME = "Hire me !"
 
     const val ABOUT_ME =
-        "With 5 years of experience, as an Android developer I have gained an understanding of the mobile development process. I am well versed in Java and Kotlin and proficient in utilizing Android Studio allowing me to create and maintain notch applications that cater to my clients requirements.\nThroughout my journey I have taken on projects ranging from simple utility apps to intricate social networking platforms. My ability to work both independently and collaboratively has consistently ensured project delivery while adhering to budget constraints. Apart from my expertise I possess a problem solving mindset and a meticulous attention to detail. I always seek out challenges and opportunities for growth, as a developer."
+        "With over 5 years of hands-on experience in Android development, I specialize in crafting intuitive, high-performance mobile applications tailored to meet diverse client needs. Proficient in Java and Kotlin, and adept at leveraging Android Studio, I deliver scalable and user-centric solutions that stand out.\n" +
+                "From building sleek utility apps to architecting complex social networking platforms, my portfolio reflects my versatility and commitment to excellence. My journey has been driven by a passion for solving challenges, maintaining a sharp eye for detail, and embracing innovation to push boundaries.\n" +
+                "Whether working independently or collaborating with teams, I consistently deliver projects on time and within budget, ensuring quality at every step. For me, every project is an opportunity to grow, innovate, and contribute to creating exceptional digital experiences."
     const val DOWNLOAD_RESUME = "Get Resume"
+    const val SUBMIT = "Submit"
 
 
 }
