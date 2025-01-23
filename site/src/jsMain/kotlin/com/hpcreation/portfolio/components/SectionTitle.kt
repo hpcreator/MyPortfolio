@@ -8,7 +8,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import com.hpcreation.portfolio.models.Section
 import com.hpcreation.portfolio.models.Theme
-import com.hpcreation.portfolio.util.Constants
+import com.hpcreation.portfolio.util.Fonts.FONT_FAMILY
 import com.hpcreation.portfolio.util.ObserveViewPortEntered
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -67,7 +67,7 @@ fun SectionTitle(
                         Alignment.End -> TextAlign.End
                         else -> TextAlign.Start
                     }
-                ).fontFamily(Constants.FONT_FAMILY).fontSize(25.px).fontWeight(
+                ).fontFamily(FONT_FAMILY).fontSize(25.px).fontWeight(
                     FontWeight.Normal
                 ).color(Theme.Primary.rgb)
                 .transition(Transition.of(property = "margin", duration = 300.ms)).toAttrs()
@@ -84,7 +84,7 @@ fun SectionTitle(
                     Alignment.End -> TextAlign.End
                     else -> TextAlign.Start
                 }
-            ).fontFamily(Constants.FONT_FAMILY).fontSize(36.px).fontWeight(
+            ).fontFamily(FONT_FAMILY).fontSize(36.px).fontWeight(
                 FontWeight.Bold
             ).color(Theme.Secondary.rgb)
                 .transition(Transition.of(property = "margin", duration = 300.ms)).toAttrs()

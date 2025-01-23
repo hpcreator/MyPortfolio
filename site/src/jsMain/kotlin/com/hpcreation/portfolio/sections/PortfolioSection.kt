@@ -1,6 +1,11 @@
 package com.hpcreation.portfolio.sections
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.hpcreation.portfolio.components.PortfolioCard
 import com.hpcreation.portfolio.components.SectionTitle
 import com.hpcreation.portfolio.models.Portfolio
@@ -18,12 +23,14 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
+import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
+import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.overflow
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
@@ -41,7 +48,7 @@ import org.jetbrains.compose.web.css.px
 fun PortfolioSection() {
     Box(
         modifier = Modifier.id(Section.Portfolio.id).fillMaxWidth().maxWidth(SECTION_WIDTH.px)
-            .padding(topBottom = 100.px).backgroundColor(Theme.LightGray.rgb),
+            .padding(topBottom = 100.px).backgroundColor(Theme.LighterGray.rgb),
         contentAlignment = Alignment.Center
     ) {
         PortfolioContent()
@@ -89,19 +96,55 @@ fun PortfolioCards(breakpoint: Breakpoint) {
 
 @Composable
 fun PortfolioNavigation() {
+    var canScrollLeft by remember { mutableStateOf(false) }
+    var canScrollRight by remember { mutableStateOf(true) }
+
+    LaunchedEffect(Unit) {
+        val container = document.getElementById("scrollableContainer")
+        container?.let {
+            val updateScrollState = {
+                val scrollLeft = it.scrollLeft
+                val scrollWidth = it.scrollWidth
+                val clientWidth = it.clientWidth
+
+                canScrollLeft = scrollLeft > 0
+                canScrollRight = scrollLeft + clientWidth < scrollWidth
+            }
+
+            updateScrollState()
+            val scrollListener = { _: dynamic -> updateScrollState() }
+            it.addEventListener("scroll", scrollListener)
+        }
+    }
     Row(
         modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center
     ) {
-        FaArrowLeft(
-            modifier = PortfolioArrowIconStyle.toModifier().margin(right = 40.px)
-                .cursor(Cursor.Pointer).onClick {
-                    document.getElementById("scrollableContainer")?.scrollBy(x = (-340.0), y = 0.0)
+        if (canScrollLeft) {
+            FaArrowLeft(
+                modifier = PortfolioArrowIconStyle.toModifier().margin(right = 40.px)
+                    .cursor(Cursor.Pointer).onClick {
+                        val container = document.getElementById("scrollableContainer")
+                        container?.scrollBy(x = (-340.0), y = 0.0)
+                    }, size = IconSize.LG
+            )
+        } else {
+            FaArrowLeft(
+                modifier = Modifier.color(Theme.Gray.rgb).margin(right = 40.px)
+                    .cursor(Cursor.NotAllowed).opacity(0.5f), size = IconSize.LG
+            )
+        }
+        if (canScrollRight) {
+            FaArrowRight(
+                modifier = PortfolioArrowIconStyle.toModifier().cursor(Cursor.Pointer).onClick {
+                    document.getElementById("scrollableContainer")?.scrollBy(x = 340.0, y = 0.0)
                 }, size = IconSize.LG
-        )
-        FaArrowRight(
-            modifier = PortfolioArrowIconStyle.toModifier().cursor(Cursor.Pointer).onClick {
-                document.getElementById("scrollableContainer")?.scrollBy(x = 340.0, y = 0.0)
-            }, size = IconSize.LG
-        )
+            )
+        } else {
+            FaArrowRight(
+                modifier = Modifier.color(Theme.Gray.rgb).cursor(Cursor.NotAllowed).opacity(0.5f),
+                size = IconSize.LG
+            )
+        }
+
     }
 }

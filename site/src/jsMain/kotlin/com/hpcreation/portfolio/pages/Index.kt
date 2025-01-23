@@ -13,6 +13,7 @@ import com.hpcreation.portfolio.sections.ExperienceSection
 import com.hpcreation.portfolio.sections.FooterSection
 import com.hpcreation.portfolio.sections.MainSection
 import com.hpcreation.portfolio.sections.PortfolioSection
+import com.hpcreation.portfolio.sections.SkillSection
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -33,6 +34,7 @@ fun HomePage() {
         ) {
             MainSection(onMenuClicked = { menuOpened = true })
             AboutSection()
+            SkillSection()
             PortfolioSection()
             ExperienceSection()
             ContactSection()

@@ -3,7 +3,7 @@ package com.hpcreation.portfolio.components
 import androidx.compose.runtime.Composable
 import com.hpcreation.portfolio.models.Experience
 import com.hpcreation.portfolio.models.Theme
-import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
+import com.hpcreation.portfolio.util.Fonts.FONT_FAMILY
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextDecorationLine

@@ -15,5 +15,6 @@ enum class Section(val id: String, val title: String, val subtitle: String, val 
     ),
     Contact(
         id = "contact", title = "Contact me", subtitle = "Get in Touch", path = "#contact"
-    )
+    ),
+    Skill(id = "skill", title = "Skills", "Tech & Non-tech", path = "#skill")
 }

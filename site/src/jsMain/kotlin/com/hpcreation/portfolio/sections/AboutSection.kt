@@ -2,7 +2,6 @@ package com.hpcreation.portfolio.sections
 
 import androidx.compose.runtime.Composable
 import com.hpcreation.portfolio.components.SectionTitle
-import com.hpcreation.portfolio.components.TechSkillGrid
 import com.hpcreation.portfolio.models.Section
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.AboutImageStyle
@@ -10,10 +9,10 @@ import com.hpcreation.portfolio.styles.AboutTextStyle
 import com.hpcreation.portfolio.styles.ResumeButtonStyle
 import com.hpcreation.portfolio.util.Constants.ABOUT_ME
 import com.hpcreation.portfolio.util.Constants.DOWNLOAD_RESUME
-import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
-import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Constants.RESUME_URL
 import com.hpcreation.portfolio.util.Constants.SECTION_WIDTH
+import com.hpcreation.portfolio.util.Fonts.FONT_DESCRIPTION
+import com.hpcreation.portfolio.util.Fonts.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Res
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontStyle
@@ -24,7 +23,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.cursor
@@ -39,7 +37,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
-import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
@@ -61,17 +58,6 @@ fun AboutSection() {
             .padding(topBottom = 150.px), horizontalAlignment = Alignment.CenterHorizontally
     ) {
         AboutContent()
-        P(
-            attrs = Modifier.margin(top = 30.px, bottom = 0.px).fontFamily(FONT_FAMILY)
-                .fontSize(25.px).fontWeight(
-                    FontWeight.Bold
-                ).color(Theme.Primary.rgb).toAttrs()
-        ) { Text(value = "Skills") }
-        Box(
-            modifier = Modifier.height(8.px).width(80.px).margin(top = 5.px, bottom = 20.px)
-                .backgroundColor(Theme.Primary.rgb).borderRadius(r = 50.px)
-        )
-        TechSkillGrid()
     }
 }
 
@@ -123,7 +109,7 @@ fun AboutMe() {
             P(
                 attrs = AboutTextStyle.toModifier().margin(
                     top = if (index == 0) 20.px else 5.px, bottom = if (index == 0) 5.px else 20.px
-                ).maxWidth(500.px).fontFamily(FONT_FAMILY).fontSize(18.px)
+                ).maxWidth(500.px).fontFamily(FONT_DESCRIPTION).fontSize(14.px)
                     .fontWeight(FontWeight.Normal).fontStyle(FontStyle.Normal)
                     .color(Theme.Secondary.rgb).toAttrs()
             ) {
@@ -133,8 +119,8 @@ fun AboutMe() {
 
         Button(
             attrs = ResumeButtonStyle.toModifier().height(40.px)
-                .padding(leftRight = 10.px, topBottom = 5.px).fontFamily(FONT_MONOSPACE).borderRadius(r = 5.px)
-                .cursor(Cursor.Pointer).toAttrs()
+                .padding(leftRight = 10.px, topBottom = 5.px).fontFamily(FONT_MONOSPACE)
+                .borderRadius(r = 5.px).cursor(Cursor.Pointer).toAttrs()
         ) {
             Link(
                 modifier = Modifier.color(Theme.Primary.rgb)

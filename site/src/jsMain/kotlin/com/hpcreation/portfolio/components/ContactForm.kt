@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.InputStyle
 import com.hpcreation.portfolio.styles.MainButtonStyle
-import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Constants.SUBMIT
+import com.hpcreation.portfolio.util.Fonts.FONT_MONOSPACE
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment

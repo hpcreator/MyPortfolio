@@ -5,8 +5,7 @@ import com.hpcreation.portfolio.models.Section
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.LogoStyle
 import com.hpcreation.portfolio.styles.NavigationItemStyle
-import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
-import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
+import com.hpcreation.portfolio.util.Fonts.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Res
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextDecorationLine
@@ -82,7 +81,7 @@ fun RightSide() {
             .backgroundColor(Theme.LighterGray.rgb).padding(topBottom = 2.px, leftRight = 30.px),
         horizontalArrangement = Arrangement.End
     ) {
-        Section.entries.forEach { section ->
+        Section.entries.dropLast(1).forEach { section ->
             Link(
                 path = section.path,
                 openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB,
@@ -90,7 +89,7 @@ fun RightSide() {
                     .textDecorationLine(TextDecorationLine.None)
             ) {
                 P(
-                    attrs = NavigationItemStyle.toModifier().fontFamily(FONT_MONOSPACE).fontSize(18.px)
+                    attrs = NavigationItemStyle.toModifier().fontFamily(FONT_MONOSPACE).fontSize(16.px)
                         .fontWeight(
                             FontWeight.Normal
                         ).textDecorationLine(TextDecorationLine.None).toAttrs()

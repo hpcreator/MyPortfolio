@@ -1,17 +1,11 @@
 package com.hpcreation.portfolio.sections
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import com.hpcreation.portfolio.components.ExperienceCard
 import com.hpcreation.portfolio.components.SectionTitle
-import com.hpcreation.portfolio.models.Experience
+import com.hpcreation.portfolio.components.TechSkillGrid
 import com.hpcreation.portfolio.models.Section
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.util.Constants.SECTION_WIDTH
-import com.hpcreation.portfolio.util.ObserveViewPortEntered
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -28,25 +22,19 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
 @Composable
-fun ExperienceSection() {
+fun SkillSection() {
     Box(
-        modifier = Modifier.id(Section.Experience.id).fillMaxWidth().maxWidth(SECTION_WIDTH.px)
+        modifier = Modifier.id(Section.Skill.id).fillMaxWidth().maxWidth(SECTION_WIDTH.px)
             .padding(topBottom = 100.px).backgroundColor(Theme.LightGray.rgb),
         contentAlignment = Alignment.Center
     ) {
-        ExperienceContent()
+        SkillContent()
     }
 }
 
 @Composable
-fun ExperienceContent() {
+fun SkillContent() {
     val breakpoint = rememberBreakpoint()
-    var animatedMargin by remember { mutableStateOf(200.px) }
-
-    ObserveViewPortEntered(sectionId = Section.Experience.id, distanceFromTop = 500.0) {
-        animatedMargin = 50.px
-    }
-
     Column(
         modifier = Modifier.fillMaxWidth(
             if (breakpoint >= Breakpoint.MD) 100.percent
@@ -54,18 +42,10 @@ fun ExperienceContent() {
         ), horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SectionTitle(
-            modifier = Modifier.fillMaxWidth(if (breakpoint >= Breakpoint.MD) 60.percent else 90.percent)
-                .margin(bottom = 25.px),
-            section = Section.Experience,
+            modifier = Modifier.fillMaxWidth().margin(bottom = 25.px),
+            section = Section.Skill,
+            alignment = Alignment.CenterHorizontally
         )
-
-        Experience.entries.forEachIndexed { index, experience ->
-            ExperienceCard(
-                breakpoint = breakpoint,
-                experience = experience,
-                active = index == 0,
-                animatedMargin = animatedMargin
-            )
-        }
+        TechSkillGrid()
     }
 }

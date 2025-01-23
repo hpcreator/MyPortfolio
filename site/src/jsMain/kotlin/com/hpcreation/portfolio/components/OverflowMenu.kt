@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 import com.hpcreation.portfolio.models.Section
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.NavigationItemStyle
-import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
+import com.hpcreation.portfolio.util.Fonts.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Res
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -113,10 +113,10 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                     modifier = Modifier.size(80.px), src = Res.Image.LOGO, alt = "Logo Image"
                 )
             }
-            Section.entries.forEach { section ->
+            Section.entries.dropLast(1).forEach { section ->
                 Link(path = section.path,
                     openExternalLinksStrategy = OpenLinkStrategy.IN_PLACE,
-                    modifier = Modifier.padding(leftRight = 15.px, top = 15.px)
+                    modifier = Modifier.padding(leftRight = 15.px, top = 5.px)
                         .textDecorationLine(TextDecorationLine.None).onClick {
                             scope.launch {
                                 translateX = (-100).percent
@@ -126,8 +126,8 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                             }
                         }) {
                     P(
-                        attrs = NavigationItemStyle.toModifier().fontFamily(FONT_FAMILY)
-                            .fontSize(18.px).fontWeight(
+                        attrs = NavigationItemStyle.toModifier().fontFamily(FONT_MONOSPACE)
+                            .fontSize(16.px).fontWeight(
                                 FontWeight.Normal
                             ).textDecorationLine(TextDecorationLine.None).toAttrs()
                     ) {

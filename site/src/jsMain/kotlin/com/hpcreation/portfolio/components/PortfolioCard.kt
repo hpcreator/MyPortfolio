@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.hpcreation.portfolio.models.Portfolio
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.PortfolioSectionStyle
-import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
+import com.hpcreation.portfolio.util.Fonts.FONT_FAMILY
 import com.hpcreation.portfolio.util.Res
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
@@ -53,7 +53,7 @@ fun PortfolioCard(
     ) {
         Column(
             modifier = modifier.id("columnParent").width(Width.MaxContent)
-                .backgroundColor(Theme.LighterGray.rgb).borderRadius(20.px)
+                .backgroundColor(Theme.LightGray.rgb).borderRadius(20.px)
         ) {
             Box(
                 modifier = Modifier.id("boxParent").fillMaxWidth().maxWidth(300.px)

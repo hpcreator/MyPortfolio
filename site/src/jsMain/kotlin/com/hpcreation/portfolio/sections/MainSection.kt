@@ -7,15 +7,15 @@ import com.hpcreation.portfolio.models.Section
 import com.hpcreation.portfolio.models.Theme
 import com.hpcreation.portfolio.styles.MainButtonStyle
 import com.hpcreation.portfolio.styles.MainImageStyle
-import com.hpcreation.portfolio.util.Constants.FONT_FAMILY
-import com.hpcreation.portfolio.util.Constants.FONT_MONOSPACE
-import com.hpcreation.portfolio.util.Constants.FONT_TITLE
 import com.hpcreation.portfolio.util.Constants.HELLO_TEXT
 import com.hpcreation.portfolio.util.Constants.HIRE_ME
 import com.hpcreation.portfolio.util.Constants.MY_BIO
 import com.hpcreation.portfolio.util.Constants.MY_DESIGNATION
 import com.hpcreation.portfolio.util.Constants.MY_NAME
 import com.hpcreation.portfolio.util.Constants.SECTION_WIDTH
+import com.hpcreation.portfolio.util.Fonts.FONT_DESCRIPTION
+import com.hpcreation.portfolio.util.Fonts.FONT_FAMILY
+import com.hpcreation.portfolio.util.Fonts.FONT_MONOSPACE
 import com.hpcreation.portfolio.util.Res
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontStyle
@@ -120,14 +120,14 @@ fun MainText(breakpoint: Breakpoint) {
         Column(Modifier.padding(10.px)) {
             P(
                 attrs = Modifier.margin(topBottom = 0.px).fontFamily(FONT_MONOSPACE)
-                    .fontSize(if (breakpoint >= Breakpoint.LG) 45.px else 20.px)
+                    .fontSize(if (breakpoint >= Breakpoint.LG) 40.px else 20.px)
                     .fontWeight(FontWeight.Bold).color(Theme.Primary.rgb).toAttrs()
             ) {
                 Text(value = HELLO_TEXT)
             }
             P(
-                attrs = Modifier.margin(top = 20.px, bottom = 0.px).fontFamily(FONT_MONOSPACE)
-                    .fontSize(if (breakpoint >= Breakpoint.LG) 64.px else 40.px)
+                attrs = Modifier.margin(top = 0.px, bottom = 0.px).fontFamily(FONT_MONOSPACE)
+                    .fontSize(if (breakpoint >= Breakpoint.LG) 56.px else 32.px)
                     .fontWeight(FontWeight.Bolder).color(Theme.Secondary.rgb).toAttrs()
             ) {
                 Text(value = MY_NAME)
@@ -140,9 +140,9 @@ fun MainText(breakpoint: Breakpoint) {
                 Text(value = MY_DESIGNATION)
             }
             P(
-                attrs = Modifier.margin(bottom = 25.px).maxWidth(400.px).fontFamily(FONT_FAMILY)
-                    .fontSize(15.px).fontWeight(FontWeight.Normal).fontStyle(FontStyle.Italic)
-                    .color(Theme.Secondary.rgb).toAttrs()
+                attrs = Modifier.margin(bottom = 25.px).maxWidth(400.px)
+                    .fontFamily(FONT_DESCRIPTION).fontSize(15.px).fontWeight(FontWeight.Normal)
+                    .fontStyle(FontStyle.Italic).color(Theme.Secondary.rgb).toAttrs()
             ) {
                 Text(
                     value = MY_BIO
@@ -151,8 +151,8 @@ fun MainText(breakpoint: Breakpoint) {
             Button(
                 attrs = MainButtonStyle.toModifier().height(40.px).border(width = 0.px)
                     .borderRadius(r = 5.px).padding(leftRight = 10.px, topBottom = 5.px)
-                    .backgroundColor(Theme.Primary.rgb).fontFamily(FONT_MONOSPACE).color(Colors.White).cursor(Cursor.Pointer)
-                    .toAttrs()
+                    .backgroundColor(Theme.Primary.rgb).fontFamily(FONT_MONOSPACE)
+                    .color(Colors.White).cursor(Cursor.Pointer).toAttrs()
             ) {
                 Link(
                     modifier = Modifier.color(Colors.White)
